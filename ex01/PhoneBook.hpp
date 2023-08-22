@@ -10,7 +10,6 @@ class PhoneBook {
 	private :
 		Contact contact[8];
 		int		index;
-		bool	full;
 	public	:
 		PhoneBook();
 		~PhoneBook();

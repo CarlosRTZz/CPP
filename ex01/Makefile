@@ -6,28 +6,39 @@
 #    By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/19 13:45:01 by cortiz            #+#    #+#              #
-#    Updated: 2023/08/21 12:27:56 by cortiz           ###   ########.fr        #
+#    Updated: 2023/08/22 11:24:31 by cortiz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-OBJ = $(SRC:.cpp=.o)
-CC = c++
-RM = rm -f
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-
 NAME = PhoneBook
 
-all: $(NAME)
+CC = g++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+RM = rm -rf
 
-$(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+OBJS_DIR = objs
+
+SRCS =	Contact.cpp	\
+		PhoneBook.cpp	\
+		main.cpp	\
+
+OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.cpp=%.o})
+
+all: ${NAME}
+
+${OBJS_DIR}/%.o: %.cpp
+	mkdir -p ${@D}
+	${CC} ${CFLAGS} -I. -c $< -o $@
+
+${NAME}: ${OBJS}
+	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
-	$(RM) $(OBJ)
+	${RM} ${OBJS_DIR}
 
 fclean: clean
-	$(RM) $(NAME)
+	${RM} ${NAME}
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re

@@ -3,7 +3,6 @@
 
 PhoneBook::PhoneBook() {
 	this->index = 0;
-	this->full = false;
 	return ;
 }
 
@@ -26,6 +25,18 @@ void	PhoneBook::displayContact(int index) {
 	std::cout << "Nickname : " << this->contact[index].getNickname() << std::endl;
 	std::cout << "Number : " << this->contact[index].getNumber() << std::endl;
 	std::cout << "Secret : " << this->contact[index].getSecret() << std::endl;
+}
+
+std::string displayStr(std::string str) {
+	std::string str2;
+
+	if (str.size() > 10)
+	{
+		str2 = str.substr(0,9);
+		str2 += ".";
+		return str2;
+	}
+	return str;
 }
 
 void	PhoneBook::add() {
@@ -80,34 +91,9 @@ void	PhoneBook::add() {
 
 void PhoneBook::search() {
 	std::string str;
-	int			index;
-	// if (!this->full && this->index == 0)
-	// {
-	// 	std::cout << "There are no contacts yet" << std::endl;
-	// 	return ;
-	// }
-	// for (int i = 0; i < this->index || (this->full && i < 8); i++)
-	// {
-	// 	std::cout << "|";
-	// 	std::cout << std::setw(10);
-	// 	std::cout << i << "|";
-	// 	std::cout << std::setw(10);
-	// 	std::cout << this->contact[i].getFirstName() << "|";
-	// 	std::cout << std::setw(10);
-	// 	std::cout << this->contact[i].getLastName() << "|";
-	// 	std::cout << std::setw(10);
-	// 	std::cout << this->contact[i].getNickname() << "|" << std::endl;
-	// }
-	// std::cout << "Type un truc sale chien!!!!!" << std::endl;
-	// std::getline(std::cin, str);
-	// if (!str.empty() && hasDigit(str))
-	// {
-	// 	std::cout << "bien ouej" << std::endl;
-	// }
-	// else
-	// 	std::cout << "only digit between 0 and 8" << std::endl;
+
 	if (this->contact[0].getFirstName().empty()) {
-		std::cout << "There are no cpontacts yet" << std::endl;
+		std::cout << "There are no contacts yet" << std::endl;
 		return ;
 	}
 	for (int i = 0; i < 8; i++)
@@ -116,14 +102,17 @@ void PhoneBook::search() {
 			break ;
 		std::cout << "|";
 		std::cout << std::setw(10) << i << "|";
-		std::cout << std::setw(10) << this->contact[i].getFirstName() << "|";
-		std::cout << std::setw(10) << this->contact[i].getLastName() << "|";
-		std::cout << std::setw(10) << this->contact[i].getNickname() << "|" << std::endl;
+		std::cout << std::setw(10) << displayStr(this->contact[i].getFirstName()) << "|";
+		std::cout << std::setw(10) << displayStr(this->contact[i].getLastName()) << "|";
+		std::cout << std::setw(10) << displayStr(this->contact[i].getNickname()) << "|" << std::endl;
 	}
 	std::cout << "Type a index to find" << std::endl;
 	std::getline(std::cin, str);
-	if (str.empty() || !hasDigit(str) || (std::stoi(str) >= 0 && std::stoi(str) <= 7) || this->contact[std::stoi(str)].getFirstName().empty())
+	std::stringstream ss(str);
+	long nb;
+	ss >> nb;
+	if (str.empty() || !hasDigit(str) || (nb < 0 || nb > 7) || this->contact[nb].getFirstName().empty())
 		std::cout << "Please provide a valid index" << std::endl;
 	else
-		displayContact(std::stoi(str));
+		displayContact(nb);
 }
