@@ -1,7 +1,9 @@
 #include "Zombie.hpp"
 
-int main(int ac, char **av)
+int main()
 {
-	std::string name = av[1];
-	Zombie* zombie(name);
+	Zombie qwer("qwer");
+	Zombie* poiu = newZombie("poiu");
+	randomChump("random");
+	delete poiu;
 }
