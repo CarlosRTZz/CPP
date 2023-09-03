@@ -1,18 +1,20 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void) : ScavTrap() {
+FragTrap::FragTrap(void) : ClapTrap() {
+	this->hitPoint = 100;
 	this->energyPoint = 100;
 	this->attackDamage = 30;
 	std::cout << "FragTrap \"" << this->_name << "\" constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(const std::string &name) : ScavTrap(name) {
+FragTrap::FragTrap(const std::string &name) : ClapTrap(name) {
+	this->hitPoint = 100;
 	this->energyPoint = 100;
 	this->attackDamage = 30;
 	std::cout << "FragTrap \"" << this->_name << "\" constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &copy) : ScavTrap(copy) {
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy) {
 	std::cout << "FragTrap copy constructor called" << std::endl;
 }
 
@@ -22,7 +24,7 @@ FragTrap::~FragTrap(void) {
 
 FragTrap &FragTrap::operator=(const FragTrap &rhs) {
 	std::cout << "FragTrap Assignation operator called" << std::endl;
-	ScavTrap::operator=(rhs);
+	ClapTrap::operator=(rhs);
 	return *this;
 }
 
