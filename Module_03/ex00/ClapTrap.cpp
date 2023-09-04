@@ -29,7 +29,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
 void ClapTrap::attack(const std::string &target) {
 	if (hitPoint > 0 && energyPoint > 0)
 	{
-		std::cout << "ClapTrap " << this->_name << "attack " << target << ", causing " << this->attackDamage << " point of damage!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " attack " << target << ", causing " << this->attackDamage << " point of damage!" << std::endl;
 		energyPoint--;
 	}
 	else if (hitPoint == 0)
