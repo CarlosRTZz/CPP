@@ -1,4 +1,4 @@
-NAME = FragTrap
+NAME = virtual
 
 CC = g++
 
@@ -8,9 +8,11 @@ RM = rm -rf
 
 OBJS_DIR = objs
 
-SRCS = ClapTrap.cpp \
-		ScavTrap.cpp \
-		FragTrap.cpp \
+SRCS = WrongAnimal.cpp \
+		WrongCat.cpp \
+		Animal.cpp \
+		Cat.cpp \
+		Dog.cpp \
 		main.cpp
 
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.cpp=%.o})
