@@ -1,4 +1,4 @@
-NAME = virtual
+NAME = ex00
 
 CC = g++
 
