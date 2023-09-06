@@ -4,6 +4,9 @@
 # include "Animal.hpp"
 
 class Dog : public Animal {
+	private :
+		Brain *brain;
+
 	public :
 		virtual void makeSound(void) const;
 

@@ -14,6 +14,12 @@ Dog::~Dog(void) {
 	std::cout << "Dog destructor called" << std::endl;
 }
 
+Dog &Dog::operator=(const Dog &rhs) {
+	this->type = rhs.type;
+	std::cout << "Dog Assignation operator called" << std::endl;
+	return (*this);
+}
+
 void Dog::makeSound(void) const{
 	std::cout << this->type << ": Bark bark (Dogs are the best !!!)" << std::endl;
 }

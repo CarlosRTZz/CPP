@@ -17,6 +17,12 @@ void WrongAnimal::makeSound(void) const {
 	std::cout << this->type << ": ..." << std::endl;
 }
 
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &rhs) {
+	this->type = rhs.type;
+	std::cout << "WrongAnimal Assignation operator called" << std::endl;
+	return (*this);
+}
+
 std::string WrongAnimal::getType(void) const{
 	return (this->type);
 }

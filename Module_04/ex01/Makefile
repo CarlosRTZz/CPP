@@ -1,4 +1,4 @@
-NAME = virtual
+NAME = ex01
 
 CC = g++
 
@@ -8,8 +8,7 @@ RM = rm -rf
 
 OBJS_DIR = objs
 
-SRCS = WrongAnimal.cpp \
-		WrongCat.cpp \
+SRCS = Brain.cpp \
 		Animal.cpp \
 		Cat.cpp \
 		Dog.cpp \

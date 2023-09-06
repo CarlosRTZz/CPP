@@ -11,7 +11,14 @@ Dog::Dog(const Dog &copy) {
 }
 
 Dog::~Dog(void) {
+	delete this->brain;
 	std::cout << "Dog destructor called" << std::endl;
+}
+
+Dog &Dog::operator=(const Dog &rhs) {
+	this->type = rhs.type;
+	this->brain = rhs.brain;
+	return (*this);
 }
 
 void Dog::makeSound(void) const{

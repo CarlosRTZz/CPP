@@ -1,8 +1,10 @@
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
+#include <iostream>
+
 class Brain {
-	protected :
+	private :
 		std::string ideas[100];
 
 	public :
@@ -11,6 +13,6 @@ class Brain {
 		Brain(void);
 		Brain(const Brain &copy);
 		~Brain(void);
-}
+};
 
 #endif

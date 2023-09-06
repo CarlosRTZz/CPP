@@ -13,6 +13,12 @@ Animal::~Animal(void) {
 	std::cout << "Animal destructor called" << std::endl;
 }
 
+Animal &Animal::operator=(const Animal &rhs) {
+	this->type = rhs.type;
+	std::cout << "Animal Assignation operator called" << std::endl;
+	return (*this);
+}
+
 void Animal::makeSound(void) const {
 	std::cout << this->type << ": ..." << std::endl;
 }

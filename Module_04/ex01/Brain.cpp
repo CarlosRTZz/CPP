@@ -1,4 +1,4 @@
-#include "Brain"
+#include "Brain.hpp"
 
 Brain::Brain(void) {
 	std::cout << "Brain constructor called" << std::endl;

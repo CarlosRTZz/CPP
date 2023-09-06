@@ -2,6 +2,7 @@
 #define ANIMAL_HPP
 
 # include <iostream>
+# include "Brain.hpp"
 
 class Animal {
 	protected :
@@ -10,6 +11,8 @@ class Animal {
 	public :
 		virtual void makeSound(void) const;
 		std::string getType(void) const;
+
+		Animal &operator=(const Animal &rhs);
 
 		Animal(void);
 		Animal(const Animal &copy);

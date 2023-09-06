@@ -1,34 +1,67 @@
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-int main( void )
+void Test(void)
 {
-	const Animal* animal = new Animal();
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
 	std::cout << std::endl;
-	std::cout << "Dog->getType [" << dog->getType() << "] " << std::endl;
-	std::cout << "Cat->getType [" << cat->getType() << "] " << std::endl;
-	cat->makeSound(); //will output the cat sound! (not the Animal)
-	dog->makeSound(); //will output the dog sound! (not the Animal)
-	animal->makeSound(); //will output the animal sound
+	std::cout << "\033[1;44m" << j->getType() << "\033[0m " << std::endl;
+	std::cout << "\033[1;44m" << i->getType() << "\033[0m " << std::endl;
 
 	std::cout << std::endl;
-	const WrongAnimal* wrong_animal = new WrongAnimal();
-	const WrongAnimal* wrong_cat = new WrongCat();
+
+	j->makeSound();
+	i->makeSound();
+	meta->makeSound();
 
 	std::cout << std::endl;
-	wrong_cat->makeSound();
-	wrong_animal->makeSound();
+
+	delete i;
+	delete j;
+	delete meta;
+}
+
+void Test02(void)
+{
+	Animal *array[20];
+	std::cout << "\033[1;32mConstructor \033[0m" << std::endl;
+	for (int i = 0; i < 20; i++){
+		if (i % 2 == 0){
+			array[i] = new Dog();
+		}
+		else{
+			array[i] = new Cat();
+		}
+	}
+	std::cout << std::endl;
+	
+	std::cout << "\033[1;36m Sound Test \033[0m" << std::endl;
+	for(int i = 0; i < 20; i++){
+		array[i]->makeSound();
+	}
 
 	std::cout << std::endl;
-	delete animal;
-	delete dog;
-	delete cat;
-	delete wrong_cat;
-	delete wrong_animal;
+	std::cout << "\033[1;33mDestructor \033[0m" << std::endl;
+
+	for (int i = 0; i < 20; i++){
+		delete array[i];
+	}
+}
+
+int	main(void)
+{
+	std::cout << "\033[4;41m Test From ex00 \033[0m" << std::endl;
+	Test();
+
+	std::cout << std::endl;
+	
+	std::cout << "\033[4;41m NewTest \033[0m" << std::endl;
+	Test02();
+
+	system("leaks virtual");
+	return (0);
 }
