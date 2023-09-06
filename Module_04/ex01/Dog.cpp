@@ -18,6 +18,7 @@ Dog::~Dog(void) {
 Dog &Dog::operator=(const Dog &rhs) {
 	this->type = rhs.type;
 	this->brain = rhs.brain;
+	std::cout << "Dog Assignation operator called" << std::endl;
 	return (*this);
 }
 
