@@ -4,7 +4,7 @@
 
 void Test(void)
 {
-	const Animal* meta = new Animal();
+	// const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
@@ -16,13 +16,13 @@ void Test(void)
 
 	j->makeSound();
 	i->makeSound();
-	meta->makeSound();
+	// meta->makeSound();
 
 	std::cout << std::endl;
 
 	delete i;
 	delete j;
-	delete meta;
+	// delete meta;
 }
 
 void Test02(void)
@@ -62,6 +62,5 @@ int	main(void)
 	std::cout << "\033[4;41m NewTest \033[0m" << std::endl;
 	Test02();
 
-	system("leaks ex01");
 	return (0);
 }
