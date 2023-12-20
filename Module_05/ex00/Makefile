@@ -8,7 +8,8 @@ RM = rm -rf
 
 OBJS_DIR = objs
 
-SRCS = 
+SRCS = Bureaucrat.cpp \
+		main.cpp
 
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.cpp=%.o})
 
