@@ -1,6 +1,8 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
+#include <cstdlib>
+#include <ctime>
 #include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm {
@@ -13,6 +15,8 @@ class RobotomyRequestForm : public AForm {
 		~RobotomyRequestForm(void);
 
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
+
+		virtual void execute(Bureaucrat &executor) const;
 };
 
 #endif

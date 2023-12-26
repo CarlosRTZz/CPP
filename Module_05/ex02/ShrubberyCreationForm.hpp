@@ -1,6 +1,7 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
+#include <fstream>
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm {
@@ -14,6 +15,7 @@ class ShrubberyCreationForm : public AForm {
 
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 
+		virtual void execute(Bureaucrat &executor) const;
 };
 
 #endif
