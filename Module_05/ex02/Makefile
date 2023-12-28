@@ -10,6 +10,9 @@ OBJS_DIR = objs
 
 SRCS = Bureaucrat.cpp \
 		AForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
 		main.cpp
 
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.cpp=%.o})

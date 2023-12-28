@@ -18,10 +18,10 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 	return(*this);
 }
 
-RobotomyRequestForm::execute(Bureaucrat &executor) const {
-	if (!this->_signed)
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
+	if (!this->getSigned())
 		throw (AForm::NotSignedException());
-	if (executor.getGrade() > this->gradeToExec)
+	if (executor.getGrade() > this->getGradeToExec())
 		throw (AForm::GradeTooLowException());
 	srand(time(0));
 	if ((rand() % 100) < 50)

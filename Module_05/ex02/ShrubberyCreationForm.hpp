@@ -15,7 +15,7 @@ class ShrubberyCreationForm : public AForm {
 
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 
-		virtual void execute(Bureaucrat &executor) const;
+		virtual void execute(Bureaucrat const &executor) const;
 };
 
 #endif

@@ -8,7 +8,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &shrubbery) :
 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) {}
+ShrubberyCreationForm::~ShrubberyCreationForm(void) {}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs) {
 	AForm::operator=(rhs);
@@ -16,16 +16,45 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-ShrubberyCreationForm::execute(Bureaucrat &executor) const {
-	if (!this->_signed)
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
+	if (!this->getSigned())
 		throw (AForm::NotSignedException());
-	if (executor.getGrade() > this->getGrade());
+	if (executor.getGrade() > this->getGradeToExec())
 		throw (AForm::GradeTooLowException());
 
-	std::ofstream file(this->_target + _shrubbery);
+	std::ofstream file(this->_target + "_shrubbery");
 	if (file.is_open())
 	{
-		file << "ASCII TREES" << std::endl;
+		file << "		_{\\ _{\\{\\/}/}/}__	" << std::endl;
+		file << "		{/{/\\}{/{/\\}(\\}{/\\} _	" << std::endl;
+		file << "		{/{/\\}{/{/\\}(_)\\}{/{/\\}  _	" << std::endl;
+		file << "	{\\{/(\\}\\}{/{/\\}\\}{/){/\\}\\} /\\}	" << std::endl;
+		file << "	{/{/(_)/}{\\{/)\\}{\\(_){/}/}/}/}	" << std::endl;
+		file << "	_{\\{/{/{\\{/{/(_)/}/}/}{\\(/}/}/}	" << std::endl;
+		file << "	{/{/{\\{\\{\\(/}{\\{\\/}/}{\\}(_){\\/}\\}	" << std::endl;
+		file << "	_{\\{/{\\{/(_)\\}/}{/{/{/\\}\\})\\}{/\\}	" << std::endl;
+		file << "	{/{/{\\{\\(/}{/{\\{\\{\\/})/}{\\(_)/}/}\\}	" << std::endl;
+		file << "	{\\{\\/}(_){\\{\\{\\/}/}(_){\\/}{\\/}/})/}	" << std::endl;
+		file << "	{/{\\{\\/}{/{\\{\\{\\/}/}{\\{\\/}/}\\}(_)	" << std::endl;
+		file << "	{/{\\{\\/}{/){\\{\\{\\/}/}{\\{\\(/}/}\\}/}	" << std::endl;
+		file << "	{/{\\{\\/}(_){\\{\\{\\(/}/}{\\(_)/}/}\\}	" << std::endl;
+		file << "		{/({/{\\{/{\\{\\/}(_){\\/}/}\\}/}(\\}	" << std::endl;
+		file << "		(_){/{\\/}{\\{\\/}/}{\\{\\)/}/}(_)	" << std::endl;
+		file << "			{/{/{\\{\\/}{/{\\{\\{\\(_)/}	" << std::endl;
+		file << "			{/{\\{\\{\\/}/}{\\{\\}/}	" << std::endl;
+		file << "			{){/ {\\/}{\\/} \\}\\}	" << std::endl;
+		file << "			(_)  \\.-'.-/	" << std::endl;
+		file << "		__...--- |'-.-'| --...__	" << std::endl;
+		file << "_...--\"   .-'   |'-.-'|  ' -.  \"\"--..__	" << std::endl;
+		file << "-\"    ' .  . '    |.'-._| '  . .  '   	" << std::endl;
+		file << ".  '-  '    .--'  | '-.'|    .  '  . '	" << std::endl;
+		file << "		' ..     |'-_.-|	" << std::endl;
+		file << ".  '  .       _.-|-._ -|-._  .  '  .	" << std::endl;
+		file << "			.'   |'- .-|   '.	" << std::endl;
+		file << "..-'   ' .  '.   `-._.-�   .'  '  - .	" << std::endl;
+		file << ".-' '        '-._______.-'     '  .	" << std::endl;
+		file << "		.      ~,	" << std::endl;
+		file << "	.       .   |\\   .    ' '-.	" << std::endl;
 		file.close();
 	}
 	else
