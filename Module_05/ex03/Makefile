@@ -1,4 +1,4 @@
-NAME = ex02
+NAME = ex03
 
 CC = g++
 
@@ -10,6 +10,7 @@ OBJS_DIR = objs
 
 SRCS = Bureaucrat.cpp \
 		AForm.cpp \
+		Intern.cpp \
 		PresidentialPardonForm.cpp \
 		RobotomyRequestForm.cpp \
 		ShrubberyCreationForm.cpp \

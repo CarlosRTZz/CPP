@@ -1,83 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cortiz <cortiz@student.s19.be>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 08:09:18 by mgomes-d          #+#    #+#             */
+/*   Updated: 2024/01/03 14:25:13 by cortiz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 
 int main()
 {
 	try
 	{
 		std::cout << "\033[1;32m" << "~~~ TEST 1 ~~~" << "\033[0m" << std::endl;
-		
-		Bureaucrat fluchten("Fluchten", 55);
+		Intern fluchten;
+		Bureaucrat cortiz("carlos", 2);
+		AForm *f1 = fluchten.makeForm("Robotomy request", "cortiz");
 
-		ShrubberyCreationForm f1("fluchten");
-		RobotomyRequestForm f2("fluchten");
-		PresidentialPardonForm f3("fluchten");
-
-		std::cout << fluchten << std::endl << f1 << std::endl << f2 << std::endl << f3 << std::endl;
-
-		fluchten.signForm(f1);
-		fluchten.signForm(f2);
-		fluchten.signForm(f3);
-		
-		fluchten.executeForm(f1);
-		fluchten.executeForm(f2);
-		fluchten.executeForm(f3);
+		cortiz.signForm(*f1);
+		cortiz.executeForm(*f1);
+		delete f1;
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << std::endl;
 	try
 	{
 		std::cout << "\033[1;32m" << "~~~ TEST 2 ~~~" << "\033[0m" << std::endl;
-		
-		Bureaucrat cortiz("cortiz", 1);
+		Intern fluchten;
+		Bureaucrat cortiz("carlos", 2);
+		AForm *f1 = fluchten.makeForm("Shrubbery creatiOn", "baadform");
 
-		ShrubberyCreationForm f1("cortiz");
-		RobotomyRequestForm f2("cortiz");
-		PresidentialPardonForm f3("cortiz");
-
-		std::cout << cortiz << std::endl << f1 << std::endl << f2 << std::endl << f3 << std::endl;
-
-		cortiz.signForm(f1);
-		cortiz.signForm(f2);
-		cortiz.signForm(f3);
-		
-		cortiz.executeForm(f1);
-		cortiz.executeForm(f2);
-		cortiz.executeForm(f3);
+		cortiz.signForm(*f1);
+		cortiz.executeForm(*f1);
+		delete f1;
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << std::endl;
-	try
-	{
-		std::cout << "\033[1;32m" << "~~~ TEST 2 ~~~" << "\033[0m" << std::endl;
-		
-		Bureaucrat cortiz("cortiz", 120);
-
-		ShrubberyCreationForm f1("cortiz");
-		RobotomyRequestForm f2("cortiz");
-		PresidentialPardonForm f3("cortiz");
-
-		std::cout << cortiz << std::endl << f1 << std::endl << f2 << std::endl << f3 << std::endl;
-
-		cortiz.signForm(f1);
-		cortiz.signForm(f2);
-		cortiz.signForm(f3);
-		
-		cortiz.executeForm(f1);
-		cortiz.executeForm(f2);
-		cortiz.executeForm(f3);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	return (0);
 }

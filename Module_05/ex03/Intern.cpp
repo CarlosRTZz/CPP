@@ -22,21 +22,19 @@ AForm* Intern::makeForm(std::string formName, std::string targetName) {
 		"Presidential pardon", "Robotomy request", "Shrubbery creation"
 	};
 
-	 AForm*    forms[] = {
-        new RobotomyRequestForm( formName ),
-        new PresidentialPardonForm( formName ),
-        new ShrubberyCreationForm( formName )
-	 };
+	AForm*    forms[] = {
+    new RobotomyRequestForm( targetName ),
+    new PresidentialPardonForm( targetName ),
+	new ShrubberyCreationForm( targetName )
+	};
 
-	 for (int i = 0; i < 3; i++)
-	 {
+	for (int i = 0; i < 3; i++)
+	{
 		if (formName == formList[i])
 		{
 			std::cout << "Intern creates " << formName << std::endl;
 			return (forms[i]);
 		}
-	 }
-
-	 std::cout << "Intern can't create " << formName << std::endl;
-	 return ;
+	}
+	throw Intern::unknownForm();
 }
