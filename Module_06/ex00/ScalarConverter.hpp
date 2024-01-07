@@ -4,6 +4,11 @@
 #include <iostream>
 
 class ScalarConverter {
+	private :
+		bool isDisplayable(std::string strToCheck);
+		bool isChar(std::string strToCheck);
+		bool isInt(std::string strToCheck);
+
 	public :
 	
 		ScalarConverter(void);
@@ -12,7 +17,7 @@ class ScalarConverter {
 		
 		ScalarConverter &operator=(const ScalarConverter &rhs);
 
-		void convert(std::string toConvert);
+		static void convert(std::string toConvert);
 };
 
 #endif
