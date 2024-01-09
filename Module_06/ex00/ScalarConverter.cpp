@@ -83,6 +83,22 @@ void ScalarConverter::toChar(std::string strToConvert) {
 	char c = strToConvert[0];
 	std::cout << "char: " << c << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
+	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(c) << std::endl;
+}
+
+void ScalarConverter::toInt(std::string strToConvert) {
+	int num = 0;
+	std::stringstream ss(strToConvert);
+	ss >> num;
+	std::cout << "char: " << static_cast<char>(num) << std::endl;
+	std::cout << "int: " << num << std::endl;
+	std::cout << "float: " << static_cast<float>(num) << std::endl;
+	std::cout << "double: " << static_cast<double>(num) << std::endl;
+}
+
+void ScalarConverter::toFloat(std::string strToConvert) {
+	
 }
 
 void ScalarConverter::convert(std::string toConvert) {
