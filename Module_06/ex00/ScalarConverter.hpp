@@ -13,6 +13,11 @@ class ScalarConverter {
 		static bool isDouble(std::string strToCheck);
 		static bool isOther(std::string strToCheck);
 
+		static void	printChar(char c);
+		static void	printInt(int i);
+		static void	printFloat(float f);
+		static void	printDouble(double d);
+
 		static void toChar(std::string strToConvert);
 		static void toInt(std::string strToConvert);
 		static void toFloat(std::string strToConvert);
