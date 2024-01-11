@@ -98,6 +98,10 @@ void ScalarConverter::toInt(std::string strToConvert) {
 	int num = 0;
 	std::stringstream ss(strToConvert);
 	ss >> num;
+	if (ss.fail()) {
+		std::cout << "Error while converting int!!" << std::endl;
+		return ;
+	}
 	ScalarConverter::printChar(static_cast<char>(num));
 	std::cout << "int: " << num << std::endl;
 	std::cout << "float: " << static_cast<float>(num) << std::endl;
@@ -105,7 +109,24 @@ void ScalarConverter::toInt(std::string strToConvert) {
 }
 
 void ScalarConverter::toFloat(std::string strToConvert) {
+	float num = 0;
+	std::stringstream ss(strToConvert);
+	ss >> num;
+	if (ss.fail()) {
+		std::cout << "Error while converting float!" << std::endl;
+		return ;
+	}
+	ScalarConverter::printChar(static_cast<char>(num));
+}
 
+void ScalarConverter::toDouble(std::string strToConvert) {
+	double num = 0;
+	std::stringstream ss(strToConvert);
+	ss >> num;
+	if (ss.fail()) {
+		std::cout << "Error while converting double!" << std::endl;
+		return ;
+	}
 }
 
 void ScalarConverter::convert(std::string toConvert) {

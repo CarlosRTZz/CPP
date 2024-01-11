@@ -22,7 +22,6 @@ class ScalarConverter {
 		static void toInt(std::string strToConvert);
 		static void toFloat(std::string strToConvert);
 		static void toDouble(std::string strToConvert);
-		static void toOther(std::string strToConvert);
 
 	public :
 		ScalarConverter(void);
