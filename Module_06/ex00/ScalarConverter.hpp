@@ -17,6 +17,7 @@ class ScalarConverter {
 		static void	printInt(int i);
 		static void	printFloat(float f);
 		static void	printDouble(double d);
+		static void printOther(std::string other);
 
 		static void toChar(std::string strToConvert);
 		static void toInt(std::string strToConvert);

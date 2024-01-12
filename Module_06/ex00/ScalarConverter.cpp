@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include <cmath>
 
 ScalarConverter::ScalarConverter(void) {}
 
@@ -84,6 +85,27 @@ void ScalarConverter::printChar(char c) {
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << c << "'" << std::endl;
+}
+
+void ScalarConverter::printFloat(float f) {
+	float decimalPart = f - std::floor(f);
+
+	if (decimalPart != 0.0)
+		std::cout << ".0f" << std::endl;
+	else 
+		std::cout << "f" << std::endl;
+}
+
+void ScalarConverter::printDouble(double d) {
+	double decimalPart = d - std::floor(d);
+
+	if (decimalPart != 0.0)
+		std::cout << ".0" << std::endl;
+}
+
+void ScalarConverter::printOther(std::string other) {
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "char: impossible" << std::endl;
 }
 
 void ScalarConverter::toChar(std::string strToConvert) {
