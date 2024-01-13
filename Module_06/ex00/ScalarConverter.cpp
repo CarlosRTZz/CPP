@@ -15,7 +15,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &rhs) {
 }
 
 bool ScalarConverter::isDisplayable(std::string strToCheck) {
-	for (int i = 0; strToCheck.size(); i++) {
+	for (int i = 0; strToCheck[i]; i++) {
 		if (!isprint(strToCheck[i]))
 			return (0);
 	}
@@ -103,17 +103,12 @@ void ScalarConverter::printDouble(double d) {
 		std::cout << ".0" << std::endl;
 }
 
-void ScalarConverter::printOther(std::string other) {
-	std::cout << "int: impossible" << std::endl;
-	std::cout << "char: impossible" << std::endl;
-}
-
 void ScalarConverter::toChar(std::string strToConvert) {
 	char c = strToConvert[0];
 	ScalarConverter::printChar(c);
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(c) << std::endl;
+	ScalarConverter::printFloat(static_cast<float>(c));
+	ScalarConverter::printDouble(static_cast<double>(c));
 }
 
 void ScalarConverter::toInt(std::string strToConvert) {
@@ -126,8 +121,8 @@ void ScalarConverter::toInt(std::string strToConvert) {
 	}
 	ScalarConverter::printChar(static_cast<char>(num));
 	std::cout << "int: " << num << std::endl;
-	std::cout << "float: " << static_cast<float>(num) << std::endl;
-	std::cout << "double: " << static_cast<double>(num) << std::endl;
+	ScalarConverter::printFloat(static_cast<float>(num));
+	ScalarConverter::printDouble(static_cast<float>(num));
 }
 
 void ScalarConverter::toFloat(std::string strToConvert) {
@@ -139,6 +134,9 @@ void ScalarConverter::toFloat(std::string strToConvert) {
 		return ;
 	}
 	ScalarConverter::printChar(static_cast<char>(num));
+	std::cout << "int: " << static_cast<int>(num) << std::endl;
+	ScalarConverter::printFloat(static_cast<float>(num));
+	ScalarConverter::printDouble(static_cast<double>(num)); 
 }
 
 void ScalarConverter::toDouble(std::string strToConvert) {
@@ -149,6 +147,28 @@ void ScalarConverter::toDouble(std::string strToConvert) {
 		std::cout << "Error while converting double!" << std::endl;
 		return ;
 	}
+	ScalarConverter::printChar(static_cast<char>(num));
+	std::cout << "int: " << static_cast<int>(num) << std::endl;
+	ScalarConverter::printFloat(static_cast<float>(num));
+	ScalarConverter::printDouble(static_cast<double>(num));
+}
+
+void ScalarConverter::toOther(std::string strToConvert) {
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "char: impossible" << std::endl;
+
+	if (strToConvert == "-inf" || strToConvert == "-inff") {
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
+	}
+	if (strToConvert == "+inf" || strToConvert == "+inff") {
+		std::cout << "float: +inff" << std::endl;
+		std::cout << "double: +inf" << std::endl;
+	}
+	if (strToConvert == "nan" || strToConvert == "nanf") {
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+	}
 }
 
 void ScalarConverter::convert(std::string toConvert) {
@@ -157,4 +177,17 @@ void ScalarConverter::convert(std::string toConvert) {
 		std::cout << "Non displayable character are forbidden!" << std::endl;
 		return ;
 	}
+
+	if (ScalarConverter::isChar(toConvert))
+		ScalarConverter::toChar(toConvert);
+	else if (ScalarConverter::isInt(toConvert))
+		ScalarConverter::toInt(toConvert);
+	else if (ScalarConverter::isFloat(toConvert))
+		ScalarConverter::toFloat(toConvert);
+	else if (ScalarConverter::isDouble(toConvert))
+		ScalarConverter::toDouble(toConvert);
+	else if (ScalarConverter::isOther(toConvert))
+		ScalarConverter::toOther(toConvert);
+	else
+		std::cout << "Unknown type!" << std::endl;
 }
