@@ -1,12 +1,10 @@
 #include "ScalarConverter.hpp"
 
-int main() {
-	ScalarConverter test;
-	std::string value;
-	std::cout << "Type a number : ";
-	std::cin >> value;
-
-	// std::cout << value << std::endl;
-
-	test.convert(value);
+int main(int ac, char **av) {
+	if (ac == 2) {
+		ScalarConverter::convert(av[1]);
+		return (EXIT_SUCCESS);
+	}
+	std::cout << "The program requires a single argument" << std::endl;
+	return (EXIT_FAILURE);
 }

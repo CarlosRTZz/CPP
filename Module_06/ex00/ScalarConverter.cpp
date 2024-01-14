@@ -90,7 +90,8 @@ void ScalarConverter::printChar(char c) {
 void ScalarConverter::printFloat(float f) {
 	float decimalPart = f - std::floor(f);
 
-	if (decimalPart != 0.0)
+	std::cout << "float: " << f;
+	if (decimalPart == 0)
 		std::cout << ".0f" << std::endl;
 	else 
 		std::cout << "f" << std::endl;
@@ -99,8 +100,10 @@ void ScalarConverter::printFloat(float f) {
 void ScalarConverter::printDouble(double d) {
 	double decimalPart = d - std::floor(d);
 
-	if (decimalPart != 0.0)
-		std::cout << ".0" << std::endl;
+	std::cout << "double: " << d;
+	if (decimalPart == 0)
+		std::cout << ".0";
+	std::cout << std::endl;
 }
 
 void ScalarConverter::toChar(std::string strToConvert) {
@@ -126,10 +129,9 @@ void ScalarConverter::toInt(std::string strToConvert) {
 }
 
 void ScalarConverter::toFloat(std::string strToConvert) {
-	float num = 0;
-	std::stringstream ss(strToConvert);
-	ss >> num;
-	if (ss.fail()) {
+	char* endPtr;
+	float num = std::strtof(strToConvert.c_str(), &endPtr);
+	if (*endPtr != 'f') {
 		std::cout << "Error while converting float!" << std::endl;
 		return ;
 	}
@@ -140,10 +142,9 @@ void ScalarConverter::toFloat(std::string strToConvert) {
 }
 
 void ScalarConverter::toDouble(std::string strToConvert) {
-	double num = 0;
-	std::stringstream ss(strToConvert);
-	ss >> num;
-	if (ss.fail()) {
+	char* endPtr;
+	double num = std::strtod(strToConvert.c_str(), &endPtr);
+	if (*endPtr != '\0') {
 		std::cout << "Error while converting double!" << std::endl;
 		return ;
 	}
