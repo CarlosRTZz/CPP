@@ -2,6 +2,7 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
+#include "Data.hpp"
 
 class Serializer {
 	public:
@@ -11,8 +12,9 @@ class Serializer {
 
 		Serializer &operator=(const Serializer &rhs);
 	
-	private :
 		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
+	private :
 };
 
 #endif

@@ -1,4 +1,4 @@
-NAME = convert
+NAME = ex01
 
 CC = g++
 
@@ -8,7 +8,7 @@ RM = rm -rf
 
 OBJS_DIR = objs
 
-SRCS = ScalarConverter.cpp \
+SRCS = Serializer.cpp \
 		main.cpp
 
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.cpp=%.o})
