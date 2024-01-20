@@ -17,6 +17,8 @@ Base* generate(void) {
 			return (new B);
 		case (3):
 			return (new C);
+		default :
+			return (NULL);
 	}
 }
 
