@@ -6,13 +6,13 @@
 #    By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/19 13:45:01 by cortiz            #+#    #+#              #
-#    Updated: 2023/08/22 11:24:31 by cortiz           ###   ########.fr        #
+#    Updated: 2024/01/26 09:45:05 by cortiz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PhoneBook
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
