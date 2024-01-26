@@ -1,17 +1,17 @@
 #include "easyfind.hpp"
 
 int main (void) {
-	std::vector<int> monVecteur;
+	std::vector<int> myVector;
     for (int i = 1; i <= 5; ++i) {
-        monVecteur.push_back(i);
+        myVector.push_back(i);
     }
 
-	std::list<int> maListe;
+	std::list<int> myList;
 	for (int i = 1; i <= 5; ++i)
 	{
-		maListe.push_back(i);
+		myList.push_back(i);
 	}
 
-	easyfind(monVecteur, 1);
-	easyfind(maListe, 3);
+	easyfind(myVector, 1);
+	easyfind(myList, 3);
 }
