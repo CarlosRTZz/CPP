@@ -2,6 +2,7 @@
 #define SPAN_HPP
 
 #include <iostream>
+#include <vector>
 
 class Span {
 	private :
@@ -14,7 +15,8 @@ class Span {
 
 		Span &operator=(const Span &rhs);
 
-		void addNumber(unisgned int N);
+		void addNumber(unsigned int N);
+		void addNumber(std::vector<int>::const_iterator it, std::vector<int>::const_iterator ite)
 		unsigned int shortestSpan(void);
 		unsigned int longestSpan(void);
 
@@ -31,6 +33,6 @@ class Span {
 					return ("To less numbers do find shortest Span!");
 				}
 		};
-}
+};
 
 #endif
