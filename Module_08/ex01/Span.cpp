@@ -25,9 +25,13 @@ void Span::addNumber(unsigned int N) {
 	this->_vectorN.push_back(N);
 }
 
-// void Span::addNumber(std::vector<int>::const_iterator it, std::vector<int>::const_iterator ite) {
-// 	if ((this->_N - this->_vectorN.size() ))
-// }
+void Span::addNumber(std::vector<int>::const_iterator it, std::vector<int>::const_iterator ite) {
+	unsigned int distance = std::distance(it, ite);
+	if ((this->_vectorN.size() + distance) > this->_N) {
+		throw Span::vectorOTB();
+	}
+	this->_vectorN.insert(this->_vectorN.end(), it, ite);
+}
 
 unsigned int Span::shortestSpan(void) {
 	if (this->_vectorN.size() <= 1) {
