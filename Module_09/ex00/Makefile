@@ -8,7 +8,8 @@ RM = rm -rf
 
 OBJS_DIR = objs
 
-SRCS = main.cpp
+SRCS = main.cpp \
+		BitcoinExchange.cpp
 
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.cpp=%.o})
 

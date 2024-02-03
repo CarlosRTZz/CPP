@@ -5,18 +5,28 @@
 #include <map>
 #include <fstream>
 #include <sstream>
+#include <string>
 
 class BitcoinExchange {
 	private :
-		map<std::string, double> _dataMap;
+		std::map<std::string, double> _dataMap;
+		void trimLeft(std::string& toTrim);
+		void trimRight(std::string& toTrim);
+		bool onlyDigit(std::string value);
+		bool isValidDateRange(int year, int month, int day);
+		bool validDate(std::string date);
+		bool validValue(std::string value);
+		bool validValueInput(std::string value);
+		bool checkValue(std::string valueStr, double& value);
+		bool getExchangeRate(std::string date, double& exchangeRate);
+		void parseInput(std::string value);
 	public :
 		BitcoinExchange(void);
 		BitcoinExchange(const BitcoinExchange & copy);
-		~BitconExhange(void);
 		BitcoinExchange &operator=(const BitcoinExchange & rhs);
+		~BitcoinExchange(void);
 
-		bool checkDate(std::string date);
-
+		void execExchange(std::string input);
 };
 
 #endif
