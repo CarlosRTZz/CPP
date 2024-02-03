@@ -18,7 +18,7 @@ class BitcoinExchange {
 		bool validValue(std::string value);
 		bool validValueInput(std::string value);
 		bool checkValue(std::string valueStr, double& value);
-		bool getExchangeRate(std::string date, double& exchangeRate);
+		bool getExchangeRate(std::string& date, double& exchangeRate);
 		void parseInput(std::string value);
 	public :
 		BitcoinExchange(void);

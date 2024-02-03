@@ -1,7 +1,7 @@
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(void) {
-	std::ifstream file("test.csv");
+	std::ifstream file("data.csv");
 	if (!file.is_open()) {
 		throw std::runtime_error("Error : data.csv : file not found");
 	}
@@ -19,7 +19,7 @@ BitcoinExchange::BitcoinExchange(void) {
 				throw std::runtime_error("Database Error : wrong date");
 			}
 		} else {
-			throw std::runtime_error("Database Error : wrong date");
+			throw std::runtime_error("Database Error : wrong format");
 		}
 		if (std::getline(iss, valueStr)) {
 			if (!this->validValue(valueStr)) {
@@ -176,7 +176,7 @@ bool BitcoinExchange::checkValue(std::string valueStr, double& value) {
 	return (1);
 }
 
-bool BitcoinExchange::getExchangeRate(std::string date, double& exchangeRate) {
+bool BitcoinExchange::getExchangeRate(std::string& date, double& exchangeRate) {
 	std::map<std::string, double>::iterator it = this->_dataMap.lower_bound(date);
 	if (it == this->_dataMap.end()) {
 		it--;
@@ -192,6 +192,7 @@ bool BitcoinExchange::getExchangeRate(std::string date, double& exchangeRate) {
 		}
 		it--;
 	}
+	date = it->first;
 	exchangeRate = it->second;
 	return (1);
 }
