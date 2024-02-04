@@ -184,8 +184,7 @@ bool BitcoinExchange::getExchangeRate(std::string& date, double& exchangeRate) {
 			std::cout << "Error: database is empty." << std::endl;
 			return (0);
 		}
-	}
-	if (it->first != date) {
+	} else if (it->first != date) {
 		if (it == this->_dataMap.begin()) {
 			std::cout << "Error: date too low in relation to database!" << std::endl;
 			return (0);
@@ -223,13 +222,15 @@ void BitcoinExchange::parseInput(std::string input) {
 			}
 		} else {
 			std::cout << "Error: empty line" << std::endl;
+			continue ;
 		}
 		if (std::getline(iss, valueStr)) {
 			this->trimLeft(valueStr);
 			if (!this->checkValue(valueStr, value))
 				continue ;
 		} else {
-			std::cout << "Error: empty line" << std::endl;
+			std::cout << "Error: no value" << std::endl;
+			continue ;
 		}
 		if (!this->getExchangeRate(date, exchangeRate))
 			continue ;
