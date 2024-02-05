@@ -70,6 +70,8 @@ int RPN::calculate(int nb1, int nb2, std::string tokken) {
 		case '-' :
 			return (nb1 - nb2);
 		case '/' :
+			if (nb2 == 0)
+				throw std::runtime_error("Error");
 			return (nb1 / nb2);
 		default :
 			return (nb1 * nb2);
