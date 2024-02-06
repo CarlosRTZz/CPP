@@ -3,8 +3,8 @@
 int main (int ac, char** av) {
 	if (ac == 2) {
 		try {
-			BitcoinExchange salut;
-			salut.execExchange(av[1]);
+			BitcoinExchange prog;
+			prog.execExchange(av[1]);
 		} catch (std::exception & e) {
 			std::cout << e.what() << std::endl;
 		}
